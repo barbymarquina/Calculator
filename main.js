@@ -1,17 +1,25 @@
+var nuevaCal;
 class Calculadora {
-    constructor(resultado, numero1, numero2) {
-        this.resultado = resultado;
-        this.numero1 = numero1;
-        this.numero2 = numero2;
+    constructor() {
+        this.resultado = "";
+        this.numero1 = "";
+        this.numero2 = "";
+        this.operador = "";
+
     }
 
     suma() {
-        this.resultado = this.numero1 + this.numero2;
-        console.log(resultado);
+        return this.resultado = this.numero1 + this.numero2;
     }
-    resta() { }
-    multiplica() { }
-    divide() { }
+    resta() {
+        return this.resultado = this.numero1 - this.numero2;
+    }
+    multiplica() {
+        return this.resultado = this.numero1 * this.numero2;
+    }
+    divide() {
+        return this.resultado = this.numero1 / this.numero2;
+    }
     igualar() { }
 
     get getResul() {
@@ -34,17 +42,43 @@ class Calculadora {
         return this.numero2;
     }
 
-    set setNum1(valor2) {
+    set setNum2(valor2) {
         this.numero2 = valor2;
+    }
+
+    get getOperador() {
+        return this.operador;
+    }
+    set setOperador(valor) {
+        this.getOperador = valor;
     }
 }
 
 function botonNumerico(numero) {
-    console.log(numero);
+    /*     nuevaCal.numero1 += numero.toString();
+        console.log("El numero1 es: " + nuevaCal.getNum1);
+        nuevaCal.numero2 += numero.toString();
+        console.log("El numero2 es: " + nuevaCal.getNum2); */
+
+    if (nuevaCal.getOperador == "") {
+        nuevaCal.numero1 += numero.toString();
+        console.log("El numero1 es: " + nuevaCal.getNum1);
+    } else {
+        nuevaCal.numero2 += numero.toString();
+        console.log("El numero2 es: " + nuevaCal.getNum2);
+    }
+    nuevaCal.setResul = (nuevaCal.numero1 + nuevaCal.operador + nuevaCal.numero2);
+    console.log("El resultado: " + nuevaCal.getResul);
+
+}
+
+function botonOperador(operador) {
+    nuevaCal.operador = operador;
+    console.log("El operador es " + nuevaCal.getOperador);
 }
 
 function nuevaCalculada() {
-    let nuevaCal = new Calculadora("");
+    nuevaCal = new Calculadora("");
     console.log(nuevaCal);
 }
 

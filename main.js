@@ -9,18 +9,38 @@ class Calculadora {
     }
 
     suma() {
-        return this.resultado = this.numero1 + this.numero2;
+         this.resultado = this.getNum1 + this.getNum2;
     }
     resta() {
-        return this.resultado = this.numero1 - this.numero2;
+         this.resultado = this.getNum1 - this.getNum2;
     }
     multiplica() {
-        return this.resultado = this.numero1 * this.numero2;
+         this.resultado = this.getNum1 * this.getNum2;
     }
     divide() {
-        return this.resultado = this.numero1 / this.numero2;
+         this.resultado = this.getNum1 / this.getNum2;
     }
-    igualar() { }
+    igualar() {
+        switch (this.getOperador) {
+            case '+':
+                this.suma();
+                break;
+            case '*':
+                this.multiplica();
+                break;
+            case '-':
+                this.resta();
+                break;
+            case '/':
+                this.divide();
+                break;
+            default:
+                break;
+        }
+        this.setNum1= " ";
+        this.setNum2= " ";
+
+    }
 
     get getResul() {
         return this.resultado;
@@ -31,7 +51,7 @@ class Calculadora {
     }
 
     get getNum1() {
-        return this.numero1;
+        return parseInt(this.numero1);
     }
 
     set setNum1(valor1) {
@@ -39,7 +59,7 @@ class Calculadora {
     }
 
     get getNum2() {
-        return this.numero2;
+        return parseInt(this.numero2);
     }
 
     set setNum2(valor2) {
@@ -67,7 +87,7 @@ function botonNumerico(numero) {
         nuevaCal.numero2 += numero.toString();
         console.log("El numero2 es: " + nuevaCal.getNum2);
     }
-    nuevaCal.setResul = (nuevaCal.numero1 + nuevaCal.operador + nuevaCal.numero2);
+    nuevaCal.setResul = (nuevaCal.numero1 + nuevaCal.operador + nuevaCal.numero2).toString();
     console.log("El resultado: " + nuevaCal.getResul);
 
 }
@@ -82,3 +102,7 @@ function nuevaCalculada() {
     console.log(nuevaCal);
 }
 
+function botonIgualar() {
+    nuevaCal.igualar();
+    console.log(nuevaCal.getResul);
+}
